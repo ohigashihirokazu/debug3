@@ -1,0 +1,25 @@
+<%= form_for(book) do |f| %>
+<% if book.errors.any? %>
+  <div class="error_explanation">
+    <h3><%= pluralize(book.errors.count, "error") %> prohibited this obj from being saved:</h3>
+    <ul>
+      <% book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+	<div class="field row">
+		<h4><u>Title</h4></u>
+		<%= f.text_field :title, class: "col-xs-12", id: "inputTitle" %>
+	</div>
+
+	<div class="field row">
+		<h4><u>Option</h4></u>
+		<%= f.text_area :body, class: "col-xs-12 book_body" %>
+	</div>
+
+	<div class="actions row">
+		<%= f.submit class: "btn btn-primary col-xs-12" %>
+	</div>
+<% end %>
